@@ -1,0 +1,28 @@
+    .table-persons {
+        border-left: none;
+        border-right: none;
+        border-collapse: collapse;
+        max-width: 1000px;
+        margin-left: auto;
+        margin-right: auto;
+        th {
+            background: lightgrey;
+            border: 10px;
+            text-align: center;
+        }
+        td {
+            text-align: left;
+            border: 1px solid gray;
+            border-right: none;
+            border-left: none;
+            margin: 10px;
+        }
+        th:nth-last-child(3) {
+            width: 100%;
+            text-align: center;
+        }
+        td:nth-last-child(3) {
+            width: 100%;
+            text-align: center;
+        }
+    }

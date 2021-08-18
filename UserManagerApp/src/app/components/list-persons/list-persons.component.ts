@@ -21,5 +21,12 @@ export class ListPersonsComponent implements OnInit {
       this.persons = data;
       console.log(data);
     });
-  } 
+  }
+  
+  deletePerson(person: Person): void {
+    this.apiService.deletePerson(person.id)
+      .subscribe( data => {
+        this.persons = this.persons.filter(p => p !== person);
+      })
+  };
 }

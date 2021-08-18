@@ -32,6 +32,6 @@ export class ApiService {
   }
 
   deletePerson(id: number): Observable<ApiResponse> {
-    return this.http.delete<ApiResponse>(this.baseUrl + id);
+    return this.http.delete<ApiResponse>(this.baseUrl+"/" + id);
   }
 }
