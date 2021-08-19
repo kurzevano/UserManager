@@ -12,6 +12,7 @@ export class ListPersonsComponent implements OnInit {
 
   //persons: Person[] = [];
   persons: any  = []; 
+  isEditMode = false;
 
   constructor(private apiService: ApiService) { }
 
@@ -31,6 +32,6 @@ export class ListPersonsComponent implements OnInit {
   }
 
   editPerson(person: Person): void {
-
+    this.isEditMode = true;
   }
 }

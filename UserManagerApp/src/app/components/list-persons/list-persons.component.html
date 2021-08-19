@@ -1,4 +1,4 @@
-<div>
+<div class="main-content" *ngIf="!isEditMode">
     <table class="table-persons">
         <thead>
             <tr>
@@ -27,4 +27,9 @@
             </tr>
         </tbody>
     </table>
+
+    <button>Добавить сотрудника</button>
+
 </div>
+
+<app-add-person *ngIf="isEditMode"></app-add-person>
