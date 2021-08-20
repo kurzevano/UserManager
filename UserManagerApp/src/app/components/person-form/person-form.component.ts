@@ -7,7 +7,7 @@ import { Person } from 'src/app/models/person';
   styleUrls: ['./person-form.component.scss', '../../styles/shared.scss']
 })
 export class PersonFormComponent implements OnInit {
-  @Input()  title: string = "Сотрудник";
+  @Input()  caption: string = "Сотрудник";
   @Input()  person: Person = new Person();
   @Output() onSubmit = new EventEmitter();
   @Output() onCancel = new EventEmitter();
