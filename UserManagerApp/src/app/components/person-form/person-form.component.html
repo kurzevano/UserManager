@@ -1,0 +1,11 @@
+<div class="content center">
+    <div class="header">{{title}}</div>
+
+    <a href="#" class="close" (click)="cancel()">Назад к списку</a>
+    <form (ngSubmit)="submit($event)" #form="ngForm">
+
+        <input type="text" value={{person.firstName}} placeholder="Введите имя сотрудника">
+        <input type="text" value={{person.lastName}} placeholder="Введите фамилию сотрудника">
+        <button class="btn-blue btn-save">Сохранить</button>
+    </form>
+</div>

@@ -1,4 +1,4 @@
-<div class="main-content" *ngIf="!isEditMode">
+<div class="main-content" *ngIf="!isEditMode && !isAddMode">
     <table class="table-persons">
         <thead>
             <tr>
@@ -28,8 +28,9 @@
         </tbody>
     </table>
 
-    <button>Добавить сотрудника</button>
+    <button (click)="addPerson()">Добавить сотрудника</button>
 
 </div>
 
-<app-add-person *ngIf="isEditMode"></app-add-person>
+<app-edit-person [person]=selectedPerson *ngIf="isEditMode" (onSubmit)="editPersonCompleted()"></app-edit-person>
+<app-add-person *ngIf="isAddMode" (onSubmit)="addPersonCompleted()"></app-add-person>

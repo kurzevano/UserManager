@@ -8,11 +8,14 @@ import {ApiService} from "../../service/api.service";
   templateUrl: './list-persons.component.html',
   styleUrls: ['./list-persons.component.scss']
 })
+
 export class ListPersonsComponent implements OnInit {
 
   //persons: Person[] = [];
+  selectedPerson!: Person;
   persons: any  = []; 
   isEditMode = false;
+  isAddMode = false;
 
   constructor(private apiService: ApiService) { }
 
@@ -25,13 +28,28 @@ export class ListPersonsComponent implements OnInit {
   }
   
   deletePerson(person: Person): void {
-    this.apiService.deletePerson(person.id)
+    if(person.id)
+    {this.apiService.deletePerson(person.id)
       .subscribe( data => {
         this.persons = this.persons.filter((p: Person) => p !== person);
       });
+    }
   }
 
   editPerson(person: Person): void {
+    this.selectedPerson = person;
     this.isEditMode = true;
+  }
+
+  editPersonCompleted(): void {
+    this.isEditMode = false;
+  }
+
+  addPerson(): void {
+    this.isAddMode = true;
+  }
+
+  addPersonCompleted(): void {
+    this.isAddMode = false;
   }
 }
