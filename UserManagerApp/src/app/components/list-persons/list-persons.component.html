@@ -32,5 +32,5 @@
 
 </div>
 
-<app-edit-person *ngIf="isEditMode" [person]=selectedPerson (onSubmit)="editPersonCompleted($event)" (onCancel)="cancelEdit()"></app-edit-person>
+<app-edit-person *ngIf="isEditMode" [person]=editablePerson (onSubmit)="editPersonCompleted($event)" (onCancel)="cancelEdit()"></app-edit-person>
 <app-add-person *ngIf="isAddMode" (onSubmit)="addPersonCompleted($event)" (onCancel)="cancelAdd()"></app-add-person>

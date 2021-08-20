@@ -3,8 +3,8 @@
 
     <span class="close" (click)="cancel()">Назад к списку</span>
     <form (ngSubmit)="submit()" #form="ngForm">
-        <input type="text" value={{person.firstName}} placeholder="Введите имя сотрудника">
-        <input type="text" value={{person.lastName}} placeholder="Введите фамилию сотрудника">
+        <input type="text" [(ngModel)]="person.firstName" name="firstName" placeholder="Введите имя сотрудника">
+        <input type="text" [(ngModel)]="person.lastName" name="lastName" placeholder="Введите фамилию сотрудника">
         <button class="btn-blue btn-save">Сохранить</button>
     </form>
 </div>

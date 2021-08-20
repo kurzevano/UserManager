@@ -17,6 +17,9 @@ export class ListPersonsComponent implements OnInit {
   // Текущий сотрудник (для которого осуществляется редактирование)
   selectedPerson!: Person;
 
+  // Копия текущего сотрудника (для которого осуществляется редактирование), чтобы не сохранять изменнеия в случае отмены
+  editablePerson!: Person;
+
   // Активен ли режим редактироания (когда показана форма редактирования сотрудника)
   isEditMode = false;
 
@@ -44,10 +47,13 @@ export class ListPersonsComponent implements OnInit {
 
   editPersonStart(person: Person): void {
     this.selectedPerson = person;
+    this.editablePerson = new Person(person.id, person.firstName, person.lastName);
     this.isEditMode = true;
   }
 
   editPersonCompleted(person:Person): void {
+    this.selectedPerson.firstName = person.firstName;
+    this.selectedPerson.lastName = person.lastName;
     this.apiService.updatePerson(person).subscribe();
     this.isEditMode = false;
   }

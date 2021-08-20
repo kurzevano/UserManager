@@ -4,5 +4,6 @@ export class Person
   public id:  number | null = null,
   public firstName: string = "",
   public lastName: string = ""
-  ){}
+  ){
+  }
 }
