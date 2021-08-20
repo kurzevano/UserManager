@@ -1,12 +1,10 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Person } from 'src/app/models/person';
-import { FormsModule } from '@angular/forms';
-
 
 @Component({
   selector: 'app-person-form',
   templateUrl: './person-form.component.html',
-  styleUrls: ['./person-form.component.scss']
+  styleUrls: ['./person-form.component.scss', '../../styles/shared.scss']
 })
 export class PersonFormComponent implements OnInit {
   @Input()  title: string = "Сотрудник";
@@ -19,14 +17,11 @@ export class PersonFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  submit(e : Event){
-        console.log("onSubmit person-form");
-        //e.stopPropagation() ;
+  submit(){
         this.onSubmit.emit(this.person);
   }
  
  cancel(){
-  console.log("onCancel person-form");
    this.onCancel.emit();
  }
 }

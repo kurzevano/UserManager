@@ -15,6 +15,12 @@
 
 .close {
     margin: 5px;
+    cursor: pointer;
+    color: blue;
+    text-decoration: underline;
+    &:hover {
+        font-weight: bold;
+    }
 }
 
 form {

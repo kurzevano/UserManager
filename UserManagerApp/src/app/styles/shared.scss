@@ -1,0 +1,10 @@
+.btn-blue {
+    text-align: center;
+    background: rgb(41, 127, 184);
+    border-radius: 10px;
+    color: white;
+    padding: 5px;
+    &:hover {
+        background: rgb(80, 127, 184);
+    }
+}

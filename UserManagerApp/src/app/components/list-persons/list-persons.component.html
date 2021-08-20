@@ -22,15 +22,15 @@
                 <td>{{person.firstName}}</td>
                 <td>{{person.lastName}}</td>
                 <td>
-                    <button (click)="editPerson(person)"> Ред.</button></td>
+                    <button (click)="editPersonStart(person)"> Ред.</button></td>
                 <td><button (click)="deletePerson(person)">Удалить</button></td>
             </tr>
         </tbody>
     </table>
 
-    <button (click)="addPerson()">Добавить сотрудника</button>
+    <button class="btn-blue" (click)="addPersonStart()">Добавить сотрудника</button>
 
 </div>
 
-<app-edit-person [person]=selectedPerson *ngIf="isEditMode" (onSubmit)="editPersonCompleted()"></app-edit-person>
-<app-add-person *ngIf="isAddMode" (onSubmit)="addPersonCompleted()"></app-add-person>
+<app-edit-person *ngIf="isEditMode" [person]=selectedPerson (onSubmit)="editPersonCompleted($event)" (onCancel)="cancelEdit()"></app-edit-person>
+<app-add-person *ngIf="isAddMode" (onSubmit)="addPersonCompleted($event)" (onCancel)="cancelAdd()"></app-add-person>
