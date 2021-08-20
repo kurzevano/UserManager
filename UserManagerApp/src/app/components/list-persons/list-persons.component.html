@@ -18,12 +18,14 @@
         </thead>
         <tbody>
             <tr *ngFor="let person of persons">
-                <td></td>
+                <td>
+                    <fa-icon [icon]="faUser"></fa-icon>
+                </td>
                 <td>{{person.firstName}}</td>
                 <td>{{person.lastName}}</td>
                 <td>
-                    <button (click)="editPersonStart(person)"> Ред.</button></td>
-                <td><button (click)="deletePerson(person)">Удалить</button></td>
+                    <button (click)="editPersonStart(person)" title="Редактировать"> <fa-icon [icon]="faEdit"></fa-icon></button></td>
+                <td><button (click)="deletePerson(person)" title="Удалить"><fa-icon [icon]="faTrashAlt"></fa-icon></button></td>
             </tr>
         </tbody>
     </table>

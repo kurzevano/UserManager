@@ -2,6 +2,9 @@
 import { Component, OnInit, inject } from '@angular/core';
 import {Person} from "../../models/person";
 import {ApiService} from "../../service/api.service";
+import { faUser } from '@fortawesome/free-solid-svg-icons';
+import { faEdit } from '@fortawesome/free-solid-svg-icons';
+import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-list-persons',
@@ -25,6 +28,10 @@ export class ListPersonsComponent implements OnInit {
 
   /// Активен ли режим добавления (когда показана форма добавления сотрудника)
   isAddMode = false;
+
+  faUser = faUser;
+  faEdit = faEdit;
+  faTrashAlt = faTrashAlt;
 
   constructor(private apiService: ApiService) { }
 

@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import {ApiService} from "./service/api.service";
 import { AppComponent } from './app.component';
@@ -23,7 +23,7 @@ import { EditPersonComponent } from './components/edit-person/edit-person.compon
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    FontAwesomeModule
   ],
   providers: [ApiService],
   bootstrap: [AppComponent]
