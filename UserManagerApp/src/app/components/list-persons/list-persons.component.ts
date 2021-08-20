@@ -37,9 +37,10 @@ export class ListPersonsComponent implements OnInit {
   }
   
   deletePerson(person: Person): void {
-    if(person.id)
-    {this.apiService.deletePerson(person.id)
-      .subscribe( () => {
+    
+    if(person.id && confirm(`Вы действительноохотите удалить сотрудника "${person.lastName} ${person.firstName}"?`)) 
+    {
+      this.apiService.deletePerson(person.id).subscribe( () => {
         this.persons = this.persons.filter((p: Person) => p !== person);
       });
     }
