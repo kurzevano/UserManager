@@ -4,12 +4,17 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
-import {ApiService} from "./service/api.service";
+import { CommonModule } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+
+import {ApiPersonsService} from "./service/api-persons.service";
 import { AppComponent } from './app.component';
 import { ListPersonsComponent } from './components/list-persons/list-persons.component';
 import { PersonFormComponent as PersonFormComponent } from './components/person-form/person-form.component';
 import { AddPersonComponent } from './components/add-person/add-person.component';
 import { EditPersonComponent } from './components/edit-person/edit-person.component';
+import { HttpErrorHandlerService } from './service/http-error-handler.service';
 
 @NgModule({
   declarations: [
@@ -23,9 +28,15 @@ import { EditPersonComponent } from './components/edit-person/edit-person.compon
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    CommonModule,
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot()
   ],
-  providers: [ApiService],
+  providers: [
+    ApiPersonsService,
+    HttpErrorHandlerService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

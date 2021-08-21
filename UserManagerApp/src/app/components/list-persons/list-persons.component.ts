@@ -1,7 +1,7 @@
 
 import { Component, OnInit, inject } from '@angular/core';
 import {Person} from "../../models/person";
-import {ApiService} from "../../service/api.service";
+import {ApiPersonsService} from "../../service/api-persons.service";
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { faEdit } from '@fortawesome/free-solid-svg-icons';
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
@@ -29,14 +29,16 @@ export class ListPersonsComponent implements OnInit {
   /// Активен ли режим добавления (когда показана форма добавления сотрудника)
   isAddMode = false;
 
+  // Иконки из Font Awesome
   faUser = faUser;
   faEdit = faEdit;
   faTrashAlt = faTrashAlt;
 
-  constructor(private apiService: ApiService) { }
+  constructor(private apiService: ApiPersonsService) { }
 
   ngOnInit(): void {
-    let res = this.apiService.getPersonsObject();
+    let res = this.apiService.getPersons();
+    console.log(res);
     res.subscribe( data => {
       this.persons = data as Person[];
       console.log(data);
@@ -60,10 +62,16 @@ export class ListPersonsComponent implements OnInit {
   }
 
   editPersonCompleted(person:Person): void {
-    this.selectedPerson.firstName = person.firstName;
-    this.selectedPerson.lastName = person.lastName;
-    this.apiService.updatePerson(person).subscribe();
-    this.isEditMode = false;
+     this.apiService.updatePerson(person).subscribe( data => {
+       let databasePerson = data as Person;
+       if (databasePerson)
+        {
+          this.selectedPerson.firstName = databasePerson.firstName;
+          this.selectedPerson.lastName = databasePerson.lastName;
+        }
+      });
+
+      this.isEditMode = false;
   }
 
   cancelEdit(): void {
@@ -75,9 +83,14 @@ export class ListPersonsComponent implements OnInit {
   }
 
   addPersonCompleted(person: Person): void {
-    this.apiService.createPerson(person).subscribe(()=>{
-      (this.persons).push(person);
-    });
+    this.apiService.createPerson(person).subscribe( data => {
+      let databasePerson = data as Person;
+      if (databasePerson)
+       {
+         this.persons.push(databasePerson);
+       }
+     });
+
     this.isAddMode = false;
   }
 
