@@ -1,23 +1,23 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpResponse } from '@angular/common/http';
-import {Observable} from "rxjs/index";
+import {Observable} from 'rxjs/index';
 import { catchError } from 'rxjs/operators';
-import { HttpErrorHandlerService } from '../service/http-error-handler.service';
+import { HttpErrorHandlerService } from './http-error-handler.service';
 
-import {Person} from "../models/person";
+import {Person} from '../models/person';
 import { error } from 'protractor';
 
 @Injectable({providedIn: 'root',})
 export class ApiPersonsService {
 
-  baseUrl: string = 'https://my-json-server.typicode.com/kurzevano/TestJsonServerPublic/persons/';
+  baseUrl = 'https://my-json-server.typicode.com/kurzevano/TestJsonServerPublic/persons/';
 
   constructor(
     private http: HttpClient,
     private httpErrorHandler: HttpErrorHandlerService) {
     }
 
-  getPersonsOld() : Observable<HttpResponse<Person[]>> {
+  getPersonsOld(): Observable<HttpResponse<Person[]>> {
     return this.http.get<Person[]>(this.baseUrl,  { observe: 'response' });
   }
 
@@ -28,31 +28,31 @@ export class ApiPersonsService {
       );
   }
 
-  getPersonById(id: number): Observable<object> {
-    return this.http.get(this.baseUrl + id).
+  getPersonById(id: number): Observable<Person | null> {
+    return this.http.get<Person>(this.baseUrl + id).
     pipe(
-      catchError(this.httpErrorHandler.handleError('Ошибка при получении сотрудника с id = ' + id, []))
+      catchError(this.httpErrorHandler.handleError('Ошибка при получении сотрудника с id = ' + id, null))
     );
   }
 
-  createPerson(person: Person): Observable<object> {
-    return this.http.post(this.baseUrl, person)
+  createPerson(person: Person): Observable<Person | null> {
+    return this.http.post<Person>(this.baseUrl, person)
     .pipe(
-      catchError(this.httpErrorHandler.handleError('Ошибка при добавлении сорудника', []))
-    ); 
-  }
-
-  updatePerson(person: Person): Observable<object> {
-    return this.http.put(this.baseUrl + person.id, person)
-    .pipe(
-      catchError(this.httpErrorHandler.handleError('Ошибка при сохранении сорудника', []))
+      catchError(this.httpErrorHandler.handleError('Ошибка при добавлении сорудника', null))
     );
   }
 
-  deletePerson(id: number): Observable<object> {
-    return this.http.delete(this.baseUrl + id)
+  updatePerson(person: Person): Observable<Person | null> {
+    return this.http.put<Person>(this.baseUrl + person.id, person)
     .pipe(
-      catchError(this.httpErrorHandler.handleError('Ошибка при удалении сорудника', []))
+      catchError(this.httpErrorHandler.handleError('Ошибка при сохранении сорудника', null))
+    );
+  }
+
+  deletePerson(id: number): Observable<Person | null> {
+    return this.http.delete<Person>(this.baseUrl + id)
+    .pipe(
+      catchError(this.httpErrorHandler.handleError('Ошибка при удалении сорудника', null))
     );
   }
 }

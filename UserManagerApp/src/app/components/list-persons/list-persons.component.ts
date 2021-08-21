@@ -1,7 +1,7 @@
 
 import { Component, OnInit, inject } from '@angular/core';
-import {Person} from "../../models/person";
-import {ApiPersonsService} from "../../service/api-persons.service";
+import {Person} from '../../models/person';
+import {ApiPersonsService} from '../../service/api-persons.service';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { faEdit } from '@fortawesome/free-solid-svg-icons';
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
@@ -37,17 +37,14 @@ export class ListPersonsComponent implements OnInit {
   constructor(private apiService: ApiPersonsService) { }
 
   ngOnInit(): void {
-    let res = this.apiService.getPersons();
-    console.log(res);
-    res.subscribe( data => {
+    this.apiService.getPersons()
+    .subscribe( data => {
       this.persons = data as Person[];
-      console.log(data);
     });
   }
-  
+
   deletePerson(person: Person): void {
-    
-    if(person.id && confirm(`Вы действительноохотите удалить сотрудника "${person.lastName} ${person.firstName}"?`)) 
+    if(person.id && confirm(`Вы действительноохотите удалить сотрудника "${person.lastName} ${person.firstName}"?`))
     {
       this.apiService.deletePerson(person.id).subscribe( () => {
         this.persons = this.persons.filter((p: Person) => p !== person);
@@ -61,9 +58,9 @@ export class ListPersonsComponent implements OnInit {
     this.isEditMode = true;
   }
 
-  editPersonCompleted(person:Person): void {
+  editPersonCompleted(person: Person): void {
      this.apiService.updatePerson(person).subscribe( data => {
-       let databasePerson = data as Person;
+       const databasePerson = data as Person;
        if (databasePerson)
         {
           this.selectedPerson.firstName = databasePerson.firstName;
@@ -84,7 +81,7 @@ export class ListPersonsComponent implements OnInit {
 
   addPersonCompleted(person: Person): void {
     this.apiService.createPerson(person).subscribe( data => {
-      let databasePerson = data as Person;
+      const databasePerson = data as Person;
       if (databasePerson)
        {
          this.persons.push(databasePerson);

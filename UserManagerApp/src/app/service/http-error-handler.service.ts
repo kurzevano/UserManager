@@ -12,21 +12,21 @@ export class HttpErrorHandlerService {
     return (error: HttpErrorResponse): Observable<T> => {
       console.error(error);
 
-      let descriptionError : string = "";
+      let descriptionError  = '';
 
-      switch(error.status) { 
-        case 400: { 
-          descriptionError+="Неверный запрос"; 
-           break; 
-        } 
-        case 404: { 
-          descriptionError+="Сущность не найдена в системе"; 
-           break; 
-        } 
-        case 500: { 
-          descriptionError+="Серверная ошибка"; 
-           break; 
-        } 
+      switch(error.status) {
+        case 400: {
+          descriptionError+='Неверный запрос';
+           break;
+        }
+        case 404: {
+          descriptionError+='Сущность не найдена в системе';
+           break;
+        }
+        case 500: {
+          descriptionError+='Серверная ошибка';
+           break;
+        }
      }
 
       this.toastr.error(descriptionError, errorMessage);

@@ -8,9 +8,8 @@ import { Person } from 'src/app/models/person';
 })
 export class EditPersonComponent implements OnInit {
   @Input()  person: Person = new Person();
-  @Output() onSubmit = new EventEmitter();
-  @Output() onCancel = new EventEmitter();
-
+  @Output() submited = new EventEmitter();
+  @Output() canceled = new EventEmitter();
 
   constructor() {
    }
@@ -19,11 +18,10 @@ export class EditPersonComponent implements OnInit {
   }
 
   editPerson(){
-    this.onSubmit.emit(this.person);
- }
- 
- cancel(){
-    this.onCancel.emit();
+    this.submited.emit(this.person);
  }
 
+ cancel(){
+    this.canceled.emit();
+ }
 }

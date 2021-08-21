@@ -7,10 +7,10 @@ import { Person } from 'src/app/models/person';
   styleUrls: ['./person-form.component.scss', '../../styles/shared.scss']
 })
 export class PersonFormComponent implements OnInit {
-  @Input()  caption: string = "Сотрудник";
+  @Input()  caption = 'Сотрудник';
   @Input()  person: Person = new Person();
-  @Output() onSubmit = new EventEmitter();
-  @Output() onCancel = new EventEmitter();
+  @Output() submited = new EventEmitter();
+  @Output() canceled = new EventEmitter();
 
   constructor() { }
 
@@ -18,10 +18,10 @@ export class PersonFormComponent implements OnInit {
   }
 
   submit(){
-        this.onSubmit.emit(this.person);
+    this.submited.emit(this.person);
   }
- 
- cancel(){
-   this.onCancel.emit();
+
+  cancel(){
+    this.canceled.emit();
  }
 }

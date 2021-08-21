@@ -8,7 +8,7 @@ import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 
-import {ApiPersonsService} from "./service/api-persons.service";
+import {ApiPersonsService} from './service/api-persons.service';
 import { AppComponent } from './app.component';
 import { ListPersonsComponent } from './components/list-persons/list-persons.component';
 import { PersonFormComponent as PersonFormComponent } from './components/person-form/person-form.component';
@@ -30,7 +30,7 @@ import { HttpErrorHandlerService } from './service/http-error-handler.service';
     HttpClientModule,
     FontAwesomeModule,
     CommonModule,
-    BrowserAnimationsModule, // required animations module
+    BrowserAnimationsModule,
     ToastrModule.forRoot()
   ],
   providers: [

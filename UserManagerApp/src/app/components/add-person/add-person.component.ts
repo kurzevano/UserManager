@@ -8,9 +8,9 @@ import { Person } from 'src/app/models/person';
 })
 
 export class AddPersonComponent implements OnInit {
-  @Output() onSubmit : EventEmitter<Person> = new EventEmitter<Person>();
-  @Output() onCancel = new EventEmitter();
-  person: Person = new Person(null, "", "");
+  @Output() submited: EventEmitter<Person> = new EventEmitter<Person>();
+  @Output() canceled: EventEmitter<any> = new EventEmitter();
+  person: Person = new Person(null, '', '');
 
   constructor() { }
 
@@ -18,10 +18,10 @@ export class AddPersonComponent implements OnInit {
   }
 
   addPerson(){
-    this.onSubmit.emit(this.person);
+    this.submited.emit(this.person);
  }
- 
+
  cancel(){
-    this.onCancel.emit();
+    this.canceled.emit();
  }
 }
