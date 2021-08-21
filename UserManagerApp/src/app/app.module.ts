@@ -31,7 +31,7 @@ import { HttpErrorHandlerService } from './service/http-error-handler.service';
     FontAwesomeModule,
     CommonModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot({positionClass: 'toast-top-center'})
   ],
   providers: [
     ApiPersonsService,
