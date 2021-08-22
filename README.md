@@ -1,4 +1,4 @@
-cd UserManagerApp
-npm install
-ng build user-manager
-npm run start
+# cd UserManagerApp
+# npm install
+# ng build user-manager
+# npm run start
