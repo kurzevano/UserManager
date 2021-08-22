@@ -122,6 +122,46 @@
           }
         }
       }
+    },
+    "user-manager": {
+      "projectType": "library",
+      "root": "projects/user-manager",
+      "sourceRoot": "projects/user-manager/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/user-manager/tsconfig.lib.json",
+            "project": "projects/user-manager/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/user-manager/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/user-manager/src/test.ts",
+            "tsConfig": "projects/user-manager/tsconfig.spec.json",
+            "karmaConfig": "projects/user-manager/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/user-manager/tsconfig.lib.json",
+              "projects/user-manager/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "UserManagerApp"

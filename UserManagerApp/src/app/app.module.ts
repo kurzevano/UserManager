@@ -15,6 +15,7 @@ import { PersonFormComponent as PersonFormComponent } from './components/person-
 import { AddPersonComponent } from './components/add-person/add-person.component';
 import { EditPersonComponent } from './components/edit-person/edit-person.component';
 import { HttpErrorHandlerService } from './service/http-error-handler.service';
+import { UserManagerModule } from 'user-manager';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { HttpErrorHandlerService } from './service/http-error-handler.service';
     EditPersonComponent
   ],
   imports: [
+    UserManagerModule,
     BrowserModule,
     FormsModule,
     HttpClientModule,
