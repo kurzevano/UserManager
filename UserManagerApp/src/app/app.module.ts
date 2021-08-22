@@ -8,7 +8,7 @@ import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 
-import { AppComponent } from './app.component'; 
+import { AppComponent } from './app.component';
 import { UserManagerModule } from 'user-manager';
 
 @NgModule({
@@ -19,7 +19,7 @@ import { UserManagerModule } from 'user-manager';
     UserManagerModule,
     BrowserModule,
     CommonModule,
-    BrowserAnimationsModule,
+    BrowserAnimationsModule
   ],
   providers: [
   ],

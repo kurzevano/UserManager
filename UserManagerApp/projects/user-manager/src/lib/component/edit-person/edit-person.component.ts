@@ -2,7 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Person } from '../../model/person';
 
 @Component({
-  selector: 'app-edit-person',
+  selector: 'lib-edit-person',
   templateUrl: './edit-person.component.html',
   styleUrls: ['./edit-person.component.scss']
 })
@@ -17,11 +17,11 @@ export class EditPersonComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  editPerson(){
+  editPerson(): void{
     this.submited.emit(this.person);
  }
 
- cancel(){
+ cancel(): void{
     this.canceled.emit();
  }
 }
