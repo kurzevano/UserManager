@@ -4,8 +4,9 @@ import { Component, OnInit } from '@angular/core';
   selector: 'lib-user-manager',
   template: `
     <p>
-      user-manager works!
+      user-manager works!!!
     </p>
+    <app-list-persons></app-list-persons>
   `,
   styles: [
   ]

@@ -1,6 +1,6 @@
 
 import { Component, OnInit, inject } from '@angular/core';
-import {Person} from '../../models/person';
+import {Person} from '../../model/person';
 import {ApiPersonsService} from '../../service/api-persons.service';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { faEdit } from '@fortawesome/free-solid-svg-icons';

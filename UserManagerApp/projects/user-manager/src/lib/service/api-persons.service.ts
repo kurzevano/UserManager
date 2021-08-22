@@ -4,10 +4,10 @@ import {Observable} from 'rxjs/index';
 import { catchError } from 'rxjs/operators';
 import { HttpErrorHandlerService } from './http-error-handler.service';
 
-import {Person} from '../models/person';
+import {Person} from '../model/person';
 import { error } from 'protractor';
 
-@Injectable({providedIn: 'root',})
+@Injectable({providedIn: 'root', })
 export class ApiPersonsService {
 
   baseUrl = 'https://my-json-server.typicode.com/kurzevano/TestJsonServerPublic/persons/';

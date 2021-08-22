@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Person } from 'src/app/models/person';
+import { Person } from '../../model/person';
 
 @Component({
   selector: 'app-person-form',
