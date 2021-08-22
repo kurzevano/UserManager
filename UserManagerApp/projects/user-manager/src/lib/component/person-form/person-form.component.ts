@@ -1,8 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Person } from 'src/app/models/person';
+import { Person } from '../../model/person';
 
 @Component({
-  selector: 'app-person-form',
+  selector: 'lib-person-form',
   templateUrl: './person-form.component.html',
   styleUrls: ['./person-form.component.scss', '../../styles/shared.scss']
 })
@@ -17,11 +17,11 @@ export class PersonFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  submit(){
+  submit(): void{
     this.submited.emit(this.person);
   }
 
-  cancel(){
+  cancel(): void{
     this.canceled.emit();
  }
 }

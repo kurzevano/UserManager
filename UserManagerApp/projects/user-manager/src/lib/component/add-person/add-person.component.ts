@@ -1,8 +1,8 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Person } from 'src/app/models/person';
+import { Person } from '../../model/person';
 
 @Component({
-  selector: 'app-add-person',
+  selector: 'lib-add-person',
   templateUrl: './add-person.component.html',
   styleUrls: ['./add-person.component.scss']
 })
@@ -17,11 +17,11 @@ export class AddPersonComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  addPerson(){
+  addPerson(): void{
     this.submited.emit(this.person);
  }
 
- cancel(){
+ cancel(): void{
     this.canceled.emit();
  }
 }

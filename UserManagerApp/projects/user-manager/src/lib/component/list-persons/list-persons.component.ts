@@ -1,13 +1,13 @@
 
 import { Component, OnInit, inject } from '@angular/core';
-import {Person} from '../../models/person';
+import {Person} from '../../model/person';
 import {ApiPersonsService} from '../../service/api-persons.service';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { faEdit } from '@fortawesome/free-solid-svg-icons';
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
-  selector: 'app-list-persons',
+  selector: 'lib-list-persons',
   templateUrl: './list-persons.component.html',
   styleUrls: ['./list-persons.component.scss', '../../styles/shared.scss']
 })
@@ -44,7 +44,7 @@ export class ListPersonsComponent implements OnInit {
   }
 
   deletePerson(person: Person): void {
-    if(person.id && confirm(`Вы действительноохотите удалить сотрудника "${person.lastName} ${person.firstName}"?`))
+    if (person.id && confirm(`Вы действительноохотите удалить сотрудника "${person.lastName} ${person.firstName}"?`))
     {
       this.apiService.deletePerson(person.id).subscribe( () => {
         this.persons = this.persons.filter((p: Person) => p !== person);
@@ -68,7 +68,7 @@ export class ListPersonsComponent implements OnInit {
         }
       });
 
-      this.isEditMode = false;
+     this.isEditMode = false;
   }
 
   cancelEdit(): void {
